@@ -1,20 +1,63 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# AI Maturity Spectrum Visualization
 
-# Run and deploy your AI Studio app
+Interactive visualization of AI maturity levels with an SVG-based spectrum diagram and supporting details panel.
 
-This contains everything you need to run your app locally.
+## Overview
 
-View your app in AI Studio: https://ai.studio/apps/drive/19UMPw8vH6ifck_kwljgPP1R3J53MXHUj
+This project renders a custom SVG diagram that maps AI maturity levels against task complexity and engineering involvement. It provides an interactive way to explore each level with hover highlights and detailed content.
 
-## Run Locally
+## Tech Stack
 
-**Prerequisites:**  Node.js
+- Vite
+- React + TypeScript
+- Utility-first styling with Tailwind-like classes
+- `clsx` + `tailwind-merge` helpers
 
+## Key Features
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- Declarative SVG diagram with layered rendering
+- Hover and active state highlighting
+- Background zones and animated connectors
+- Contextual information panels
+
+## Local Setup
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the dev server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+## Environment Variables
+
+Create a `.env.local` file in the repo root when needed. The following variable is read by Vite and injected into `process.env`:
+
+- `GEMINI_API_KEY`
+
+Do not commit secrets.
+
+## Project Structure Highlights
+
+- `components/Diagram.tsx`: diagram composition
+- `components/diagram/`: declarative diagram components + layout hooks
+- `components/InfoPanel.tsx`: supporting details panel
+- `constants.ts`: AI maturity data source
+- `types.ts`: shared TypeScript types
