@@ -1,0 +1,5 @@
+{
+  "name": "AI Maturity Spectrum Visualization",
+  "description": "A responsive, interactive React diagram visualizing the 6 levels of AI task complexity and engineering involvement, from ad-hoc assistance to AI-native platforms.",
+  "requestFramePermissions": []
+}
