@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  IconBrandGithub,
   IconBrandLinkedin,
   IconBrandX,
   IconBrandFacebook,
@@ -22,13 +23,13 @@ const AppHeader: React.FC<AppHeaderProps> = ({ theme, onToggleTheme, onShare }) 
 
         <div className="h-4 w-px bg-slate-200 dark:bg-slate-700 hidden sm:block"></div>
 
-        <ProfileLink />
-
-        <div className="h-4 w-px bg-slate-200 dark:bg-slate-700 hidden sm:block"></div>
-
         <span className="hidden sm:inline-flex items-center rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-2.5 py-0.5 text-xs font-semibold text-slate-700 dark:text-slate-300">
           v1.0
         </span>
+
+        <GitHubLink />
+
+        <ProfileLink />
 
         <div className="h-4 w-px bg-slate-200 dark:bg-slate-700 hidden sm:block"></div>
 
@@ -109,6 +110,21 @@ const ProfileLink: React.FC = () => {
     >
       <IconBrandLinkedin className="w-5 h-5 group-hover:text-[#0a66c2] transition-colors" />
       <span className="text-sm font-medium">Alex</span>
+    </a>
+  );
+};
+
+const GitHubLink: React.FC = () => {
+  return (
+    <a
+      href="https://github.com/AlexSKuznetsov/ai-maturity-spectrum-visualization"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="p-1.5 rounded-md text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+      aria-label="View project on GitHub"
+      title="View project on GitHub"
+    >
+      <IconBrandGithub className="w-5 h-5" />
     </a>
   );
 };
