@@ -115,6 +115,21 @@ const Diagram: React.FC<DiagramProps> = ({ activeLevel, onLevelSelect }) => {
               <stop offset="100%" stopColor={level.color} stopOpacity="0.15" />
             </linearGradient>
           ))}
+
+          <mask id="connector-mask">
+            <rect x="0" y="0" width={width} height={height} fill="white" />
+            {levelsWithCoords.map((level) => (
+              <rect
+                key={`mask-${level.id}`}
+                x={level.x}
+                y={level.y}
+                width={level.width}
+                height={level.height}
+                rx="8"
+                fill="black"
+              />
+            ))}
+          </mask>
         </defs>
 
         {/* Background Zones */}
@@ -130,8 +145,14 @@ const Diagram: React.FC<DiagramProps> = ({ activeLevel, onLevelSelect }) => {
           />
         ))}
 
-        {/* Connector Line - Rendered early to ensure it's behind blocks and axes */}
-        <path d={connectorPath} className="stroke-slate-300 dark:stroke-slate-600" strokeWidth="2" fill="none" />
+        {/* Connector Line - Masked so it sits behind blocks */}
+        <path
+          d={connectorPath}
+          className="stroke-slate-300 dark:stroke-slate-600"
+          strokeWidth="2"
+          fill="none"
+          mask="url(#connector-mask)"
+        />
 
         {/* Axes Lines - Darker and Bolder */}
         <line 
