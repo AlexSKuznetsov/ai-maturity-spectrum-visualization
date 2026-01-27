@@ -2,12 +2,19 @@ import React, { useState, useEffect } from 'react';
 import DiagramCard from './components/diagram/DiagramCard';
 import AppHeader from './components/layout/AppHeader';
 import InfoPanel from './components/InfoPanel';
-import { LevelData } from './types';
+import { AssessmentDialog } from './components/assessment';
+import { LevelData, AssessmentResult } from './types';
 import { AI_LEVELS } from './constants';
 
 const App: React.FC = () => {
   const [activeLevel, setActiveLevel] = useState<LevelData | null>(AI_LEVELS[0]);
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [assessmentOpen, setAssessmentOpen] = useState(false);
+
+  const handleAssessmentComplete = (result: AssessmentResult) => {
+    setActiveLevel(result.levelData);
+    setAssessmentOpen(false);
+  };
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -53,7 +60,7 @@ const App: React.FC = () => {
 
   return (
     <div className="flex flex-col h-screen bg-slate-50/50 dark:bg-slate-950/50 font-sans text-slate-950 dark:text-slate-50 overflow-hidden transition-colors duration-300">
-      <AppHeader theme={theme} onToggleTheme={toggleTheme} onShare={handleShare} />
+      <AppHeader theme={theme} onToggleTheme={toggleTheme} onShare={handleShare} onOpenAssessment={() => setAssessmentOpen(true)} />
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col lg:flex-row w-full p-4 gap-4 lg:p-6 lg:gap-6 overflow-y-auto lg:overflow-hidden">
@@ -75,6 +82,12 @@ const App: React.FC = () => {
         </section>
 
       </main>
+
+      <AssessmentDialog
+        open={assessmentOpen}
+        onOpenChange={setAssessmentOpen}
+        onComplete={handleAssessmentComplete}
+      />
     </div>
   );
 };

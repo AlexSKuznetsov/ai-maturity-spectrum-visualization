@@ -9,6 +9,7 @@ const BackgroundZones: React.FC = () => {
       {bgZones.map((zone) => (
         <rect
           key={zone.id}
+          data-anim="zone"
           x={zone.x}
           y={config.padding / 2}
           width={zone.width}

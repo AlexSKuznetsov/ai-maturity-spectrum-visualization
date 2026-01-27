@@ -4,7 +4,7 @@ import { LevelData } from '../types';
 import Axes from './diagram/Axes';
 import BackgroundZones from './diagram/BackgroundZones';
 import ConnectorLine from './diagram/ConnectorLine';
-import DiagramCanvas from './diagram/DiagramCanvas';
+import DiagramAnimations from './diagram/DiagramAnimations';
 import DiagramLayer from './diagram/DiagramLayer';
 import DiagramRoot from './diagram/DiagramRoot';
 import HoverTooltip from './diagram/HoverTooltip';
@@ -19,7 +19,7 @@ interface DiagramProps {
 const Diagram: React.FC<DiagramProps> = ({ activeLevel, onLevelSelect }) => {
   return (
     <DiagramRoot levels={AI_LEVELS} activeLevel={activeLevel} onSelect={onLevelSelect}>
-      <DiagramCanvas>
+      <DiagramAnimations>
         <DiagramLayer name="background">
           <BackgroundZones />
         </DiagramLayer>
@@ -34,7 +34,7 @@ const Diagram: React.FC<DiagramProps> = ({ activeLevel, onLevelSelect }) => {
         <DiagramLayer name="tooltip">
           <HoverTooltip />
         </DiagramLayer>
-      </DiagramCanvas>
+      </DiagramAnimations>
     </DiagramRoot>
   );
 };

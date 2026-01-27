@@ -12,6 +12,7 @@ const ConnectorLine: React.FC = () => {
     <>
       <path
         d={connectorPath}
+        data-anim="connector-solid"
         className="stroke-slate-300 dark:stroke-slate-600"
         strokeWidth="2"
         fill="none"
@@ -19,14 +20,13 @@ const ConnectorLine: React.FC = () => {
       />
       <path
         d={connectorPath}
+        data-anim="connector-dash"
         className="stroke-slate-400/70 dark:stroke-slate-400/60"
         strokeWidth="2"
         fill="none"
         strokeDasharray="10 14"
         mask="url(#connector-mask)"
-      >
-        <animate attributeName="stroke-dashoffset" values="0; -48" dur="3s" repeatCount="indefinite" />
-      </path>
+      />
     </>
   );
 };

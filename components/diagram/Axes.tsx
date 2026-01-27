@@ -7,6 +7,7 @@ const Axes: React.FC = () => {
   return (
     <>
       <line
+        data-anim="axis-x"
         x1={config.padding}
         y1={config.height - config.padding}
         x2={config.width - config.padding / 2}
@@ -16,6 +17,7 @@ const Axes: React.FC = () => {
         markerEnd="url(#arrowhead)"
       />
       <line
+        data-anim="axis-y"
         x1={config.padding}
         y1={config.height - config.padding}
         x2={config.padding}
@@ -25,6 +27,7 @@ const Axes: React.FC = () => {
         markerEnd="url(#arrowhead)"
       />
       <text
+        data-anim="axis-label-x"
         x={config.width / 2}
         y={config.height - 10}
         textAnchor="middle"
@@ -33,6 +36,7 @@ const Axes: React.FC = () => {
         Task complexity / operational risk
       </text>
       <text
+        data-anim="axis-label-y"
         x={15}
         y={config.height / 2}
         textAnchor="middle"

@@ -5,27 +5,38 @@ import {
   IconBrandX,
   IconBrandFacebook,
   IconMoon,
-  IconSun
+  IconSun,
+  IconTargetArrow
 } from '@tabler/icons-react';
+import VersionBadge from './VersionBadge';
 
 interface AppHeaderProps {
   theme: 'light' | 'dark';
   onToggleTheme: () => void;
   onShare: (platform: 'x' | 'facebook') => void;
+  onOpenAssessment: () => void;
 }
 
-const AppHeader: React.FC<AppHeaderProps> = ({ theme, onToggleTheme, onShare }) => {
+const AppHeader: React.FC<AppHeaderProps> = ({ theme, onToggleTheme, onShare, onOpenAssessment }) => {
   return (
     <header className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-3 flex items-center justify-between flex-shrink-0 z-10 transition-colors duration-300">
       <BrandBadge />
       <div className="flex items-center gap-3">
+        <button
+          onClick={onOpenAssessment}
+          className="inline-flex items-center gap-2 rounded-md bg-slate-900 dark:bg-slate-100 px-3 py-1.5 text-sm font-medium text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors shadow-sm"
+        >
+          <IconTargetArrow className="h-4 w-4" />
+          <span className="hidden sm:inline">Find Your Level</span>
+        </button>
+
+        <div className="h-4 w-px bg-slate-200 dark:bg-slate-700 hidden sm:block"></div>
+
         <ShareButtons onShare={onShare} />
 
         <div className="h-4 w-px bg-slate-200 dark:bg-slate-700 hidden sm:block"></div>
 
-        <span className="hidden sm:inline-flex items-center rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-2.5 py-0.5 text-xs font-semibold text-slate-700 dark:text-slate-300">
-          v1.0
-        </span>
+        <VersionBadge />
 
         <GitHubLink />
 

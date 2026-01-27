@@ -16,3 +16,16 @@ export interface Coordinates {
   width: number;
   height: number;
 }
+
+export interface AssessmentQuestion {
+  id: string;
+  text: string;
+  options: { text: string; levelId: number }[];
+}
+
+export interface AssessmentResult {
+  primaryLevel: number;
+  levelData: LevelData;
+  isTransitioning: boolean;
+  range: { from: number; to: number } | null;
+}
