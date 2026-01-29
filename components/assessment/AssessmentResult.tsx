@@ -1,16 +1,18 @@
 import React from 'react';
 import { AssessmentResult as ResultType } from '../../types';
-import { IconArrowRight, IconRefresh } from '@tabler/icons-react';
+import { IconArrowRight, IconRefresh, IconMap } from '@tabler/icons-react';
 
 interface AssessmentResultProps {
   result: ResultType;
   onViewDiagram: () => void;
+  onViewRoadmap: () => void;
   onRetake: () => void;
 }
 
 const AssessmentResult: React.FC<AssessmentResultProps> = ({
   result,
   onViewDiagram,
+  onViewRoadmap,
   onRetake,
 }) => {
   const { levelData, primaryLevel, isTransitioning, range } = result;
@@ -39,14 +41,21 @@ const AssessmentResult: React.FC<AssessmentResultProps> = ({
         )}
       </div>
 
-      <p className="text-slate-600 dark:text-slate-400 text-sm max-w-sm mx-auto">
+      <p className="text-slate-700 dark:text-slate-400 text-sm max-w-sm mx-auto">
         {levelData.taskProfile[0]}
       </p>
 
       <div className="flex flex-col gap-3 pt-2">
         <button
+          onClick={onViewRoadmap}
+          className="inline-flex items-center justify-center gap-2 rounded-lg bg-slate-900 dark:bg-slate-100 px-4 py-2.5 text-sm font-medium text-white dark:text-slate-900 hover:bg-slate-700 dark:hover:bg-slate-200 transition-colors"
+        >
+          <IconMap className="w-4 h-4" />
+          See Your Level-Up Roadmap
+        </button>
+        <button
           onClick={onViewDiagram}
-          className="inline-flex items-center justify-center gap-2 rounded-lg bg-slate-900 dark:bg-slate-100 px-4 py-2.5 text-sm font-medium text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors"
+          className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-dark-warm-secondary px-4 py-2.5 text-sm font-medium text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
         >
           View on Diagram
           <IconArrowRight className="w-4 h-4" />

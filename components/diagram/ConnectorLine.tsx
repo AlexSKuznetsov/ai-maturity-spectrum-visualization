@@ -13,7 +13,7 @@ const ConnectorLine: React.FC = () => {
       <path
         d={connectorPath}
         data-anim="connector-solid"
-        className="stroke-slate-300 dark:stroke-slate-600"
+        className="stroke-slate-300 dark:stroke-slate-700"
         strokeWidth="2"
         fill="none"
         mask="url(#connector-mask)"

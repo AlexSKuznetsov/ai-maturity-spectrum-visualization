@@ -41,9 +41,9 @@ const HoverTooltip: React.FC = () => {
         width={hoveredLevel.shortTitle.length * 7 + 32}
         height="26"
         rx="4"
-        className="fill-slate-800 dark:fill-slate-700 shadow-xl"
+        className="fill-slate-700 dark:fill-slate-700 shadow-xl"
       />
-      <path d="M -5 -5 L 0 0 L 5 -5" className="fill-slate-800 dark:fill-slate-700" />
+      <path d="M -5 -5 L 0 0 L 5 -5" className="fill-slate-700 dark:fill-slate-700" />
       <text
         x="0"
         y="-17"

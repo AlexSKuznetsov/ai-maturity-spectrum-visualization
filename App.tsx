@@ -1,19 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import DiagramCard from './components/diagram/DiagramCard';
 import AppHeader from './components/layout/AppHeader';
+import AppFooter from './components/layout/AppFooter';
 import InfoPanel from './components/InfoPanel';
 import { AssessmentDialog } from './components/assessment';
+import { RoadmapDialog } from './components/roadmap';
 import { LevelData, AssessmentResult } from './types';
 import { AI_LEVELS } from './constants';
+import { useAssessmentStore } from './store/useAssessmentStore';
 
 const App: React.FC = () => {
-  const [activeLevel, setActiveLevel] = useState<LevelData | null>(AI_LEVELS[0]);
+  const savedAssessmentResult = useAssessmentStore((state) => state.result);
+
+  const [activeLevel, setActiveLevel] = useState<LevelData | null>(() => {
+    // Initialize with saved result level if exists, otherwise default to first level
+    return savedAssessmentResult?.levelData || AI_LEVELS[0];
+  });
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
   const [assessmentOpen, setAssessmentOpen] = useState(false);
+  const [roadmapOpen, setRoadmapOpen] = useState(false);
+  const [roadmapResult, setRoadmapResult] = useState<AssessmentResult | null>(null);
+
+  // Sync activeLevel when saved result changes (e.g., on page reload)
+  useEffect(() => {
+    if (savedAssessmentResult?.levelData) {
+      setActiveLevel(savedAssessmentResult.levelData);
+    }
+  }, [savedAssessmentResult]);
 
   const handleAssessmentComplete = (result: AssessmentResult) => {
     setActiveLevel(result.levelData);
     setAssessmentOpen(false);
+  };
+
+  const handleViewRoadmap = (result: AssessmentResult) => {
+    setRoadmapResult(result);
+    setAssessmentOpen(false);
+    setRoadmapOpen(true);
   };
 
   useEffect(() => {
@@ -44,23 +67,9 @@ const App: React.FC = () => {
     }
   };
 
-  const handleShare = (platform: 'x' | 'facebook') => {
-    const url = encodeURIComponent(window.location.href);
-    const text = encodeURIComponent('Check out this AI Maturity Spectrum visualization!');
-    
-    let shareUrl = '';
-    if (platform === 'x') {
-      shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
-    } else if (platform === 'facebook') {
-      shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-    }
-    
-    window.open(shareUrl, '_blank', 'width=600,height=400');
-  };
-
   return (
-    <div className="flex flex-col h-screen bg-slate-50/50 dark:bg-slate-950/50 font-sans text-slate-950 dark:text-slate-50 overflow-hidden transition-colors duration-300">
-      <AppHeader theme={theme} onToggleTheme={toggleTheme} onShare={handleShare} onOpenAssessment={() => setAssessmentOpen(true)} />
+    <div className="flex flex-col h-screen bg-slate-50/50 dark:bg-dark-warm/50 font-sans text-slate-950 dark:text-slate-50 overflow-hidden transition-colors duration-300">
+      <AppHeader theme={theme} onToggleTheme={toggleTheme} onOpenAssessment={() => setAssessmentOpen(true)} />
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col lg:flex-row w-full p-4 gap-4 lg:p-6 lg:gap-6 overflow-y-auto lg:overflow-hidden">
@@ -83,10 +92,19 @@ const App: React.FC = () => {
 
       </main>
 
+      <AppFooter />
+
       <AssessmentDialog
         open={assessmentOpen}
         onOpenChange={setAssessmentOpen}
         onComplete={handleAssessmentComplete}
+        onViewRoadmap={handleViewRoadmap}
+      />
+
+      <RoadmapDialog
+        open={roadmapOpen}
+        onOpenChange={setRoadmapOpen}
+        assessmentResult={roadmapResult}
       />
     </div>
   );

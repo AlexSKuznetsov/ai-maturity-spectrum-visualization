@@ -5,6 +5,7 @@ import { DiagramLayoutData } from './useDiagramLayout';
 export interface DiagramContextValue extends DiagramLayoutData {
   levels: LevelData[];
   activeLevel: LevelData | null;
+  assessedLevel: number | null;
   hoveredLevelId: number | null;
   setHoveredLevelId: React.Dispatch<React.SetStateAction<number | null>>;
   onSelect: (level: LevelData) => void;

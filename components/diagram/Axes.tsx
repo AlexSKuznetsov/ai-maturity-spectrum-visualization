@@ -29,7 +29,7 @@ const Axes: React.FC = () => {
       <text
         data-anim="axis-label-x"
         x={config.width / 2}
-        y={config.height - 10}
+        y={config.height - config.padding + 30}
         textAnchor="middle"
         className="text-sm font-bold fill-slate-700 dark:fill-slate-300"
       >
@@ -37,11 +37,11 @@ const Axes: React.FC = () => {
       </text>
       <text
         data-anim="axis-label-y"
-        x={15}
+        x={config.padding - 30}
         y={config.height / 2}
         textAnchor="middle"
         className="text-sm font-bold fill-slate-700 dark:fill-slate-300"
-        transform={`rotate(-90, 15, ${config.height / 2})`}
+        transform={`rotate(-90, ${config.padding - 30}, ${config.height / 2})`}
       >
         Engineering involvement
       </text>

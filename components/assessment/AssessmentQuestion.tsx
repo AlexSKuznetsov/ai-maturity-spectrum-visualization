@@ -26,8 +26,8 @@ const AssessmentQuestion: React.FC<AssessmentQuestionProps> = ({
               onClick={() => onSelect(option.levelId)}
               className={`w-full p-3 text-left rounded-lg border transition-all duration-200 ${
                 isSelected
-                  ? 'border-2 border-slate-900 dark:border-slate-100 bg-slate-50 dark:bg-slate-800'
-                  : 'border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800'
+                  ? 'border-2 border-slate-900 dark:border-slate-100 bg-slate-50 dark:bg-dark-warm-secondary'
+                  : 'border border-slate-200 dark:border-slate-700 bg-white dark:bg-dark-warm-secondary/50 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-dark-warm-secondary'
               }`}
             >
               <span

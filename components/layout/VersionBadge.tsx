@@ -9,6 +9,15 @@ interface ChangelogEntry {
 
 const changelog: ChangelogEntry[] = [
   {
+    version: 'v1.2',
+    changes: [
+      'Added Level-Up Roadmap feature',
+      'Personalized action plan to reach next level',
+      'Gap analysis showing what changes between levels',
+      'UI improvements and bug fixes',
+    ],
+  },
+  {
     version: 'v1.1',
     changes: [
       'Added "Find Your Level" self-assessment feature',
@@ -34,7 +43,7 @@ const VersionBadge: React.FC = () => {
   return (
     <HoverCard openDelay={200} closeDelay={100}>
       <HoverCardTrigger asChild>
-        <span className="hidden sm:inline-flex items-center rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-2.5 py-0.5 text-xs font-semibold text-slate-700 dark:text-slate-300 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+        <span className="inline-flex items-center rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-dark-warm-secondary px-2.5 py-0.5 text-xs font-semibold text-slate-700 dark:text-slate-300 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
           {currentVersion}
         </span>
       </HoverCardTrigger>
@@ -53,7 +62,7 @@ const VersionBadge: React.FC = () => {
                   {entry.changes.map((change, index) => (
                     <li
                       key={index}
-                      className="text-xs text-slate-600 dark:text-slate-400 pl-3 relative before:content-['•'] before:absolute before:left-0 before:text-slate-400 dark:before:text-slate-500"
+                      className="text-xs text-slate-700 dark:text-slate-400 pl-3 relative before:content-['•'] before:absolute before:left-0 before:text-slate-400 dark:before:text-slate-500"
                     >
                       {change}
                     </li>

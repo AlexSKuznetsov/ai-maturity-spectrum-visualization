@@ -1,6 +1,10 @@
 import { AssessmentQuestion, AssessmentResult, LevelData } from '../../types';
 import { AI_LEVELS } from '../../constants';
 
+// Increment this version when questions, options, or scoring logic changes
+// This will invalidate stored results and require users to retake the assessment
+export const ASSESSMENT_VERSION = '1.0.0';
+
 export const ASSESSMENT_QUESTIONS: AssessmentQuestion[] = [
   {
     id: 'frequency',

@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-dark-warm: #14120b;
+  --color-dark-warm-secondary: #1b1913;
+
+  --font-sans: 'Nunito', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+
+  --animate-slide-down: slide-down 0.2s ease-out;
+  --animate-slide-up: slide-up 0.2s ease-out;
+}
+
+@keyframes slide-down {
+  from { height: 0; }
+  to { height: var(--radix-collapsible-content-height); }
+}
+
+@keyframes slide-up {
+  from { height: var(--radix-collapsible-content-height); }
+  to { height: 0; }
+}

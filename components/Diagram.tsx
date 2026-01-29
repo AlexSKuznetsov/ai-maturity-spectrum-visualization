@@ -10,15 +10,17 @@ import DiagramRoot from './diagram/DiagramRoot';
 import HoverTooltip from './diagram/HoverTooltip';
 import LevelBlocks from './diagram/LevelBlocks';
 import TransitionMarker from './diagram/TransitionMarker';
+import YouAreHereMarker from './diagram/YouAreHereMarker';
 
 interface DiagramProps {
   activeLevel: LevelData | null;
+  assessedLevel: number | null;
   onLevelSelect: (level: LevelData) => void;
 }
 
-const Diagram: React.FC<DiagramProps> = ({ activeLevel, onLevelSelect }) => {
+const Diagram: React.FC<DiagramProps> = ({ activeLevel, assessedLevel, onLevelSelect }) => {
   return (
-    <DiagramRoot levels={AI_LEVELS} activeLevel={activeLevel} onSelect={onLevelSelect}>
+    <DiagramRoot levels={AI_LEVELS} activeLevel={activeLevel} assessedLevel={assessedLevel} onSelect={onLevelSelect}>
       <DiagramAnimations>
         <DiagramLayer name="background">
           <BackgroundZones />
@@ -32,6 +34,7 @@ const Diagram: React.FC<DiagramProps> = ({ activeLevel, onLevelSelect }) => {
           <LevelBlocks />
         </DiagramLayer>
         <DiagramLayer name="tooltip">
+          <YouAreHereMarker />
           <HoverTooltip />
         </DiagramLayer>
       </DiagramAnimations>

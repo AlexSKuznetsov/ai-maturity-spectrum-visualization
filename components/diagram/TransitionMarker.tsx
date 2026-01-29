@@ -49,7 +49,7 @@ const TransitionMarker: React.FC = () => {
         y1={config.height - config.padding}
         x2={transitionX}
         y2={config.padding}
-        className="stroke-slate-400 dark:stroke-slate-600"
+        className="stroke-slate-400 dark:stroke-slate-700"
         strokeWidth="2"
         strokeDasharray="4 4"
       />

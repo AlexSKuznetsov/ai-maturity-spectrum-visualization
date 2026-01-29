@@ -29,3 +29,28 @@ export interface AssessmentResult {
   isTransitioning: boolean;
   range: { from: number; to: number } | null;
 }
+
+export interface LevelTransition {
+  fromLevel: number;
+  toLevel: number;
+  gapAnalysis: {
+    taskEvolution: string;
+    riskIncrease: string;
+    scopeExpansion: string;
+  };
+  actionItems: {
+    title: string;
+    description: string;
+    category: 'process' | 'technical' | 'organizational';
+  }[];
+  skillsNeeded: string[];
+  toolsToImplement: string[];
+  keyMilestones: string[];
+}
+
+export interface LeadCaptureData {
+  email: string;
+  currentLevel: number;
+  targetLevel: number;
+  capturedAt: string;
+}

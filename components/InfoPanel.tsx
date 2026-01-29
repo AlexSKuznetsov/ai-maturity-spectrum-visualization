@@ -19,9 +19,9 @@ interface InfoPanelProps {
 const InfoPanel: React.FC<InfoPanelProps> = ({ level }) => {
   if (!level) {
     return (
-      <div className="h-full flex items-center justify-center p-8 bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 border-dashed rounded-xl text-slate-400 dark:text-slate-500 text-center">
+      <div className="h-full flex items-center justify-center p-8 bg-slate-50/50 dark:bg-dark-warm/50 border border-slate-200 dark:border-slate-700 border-dashed rounded-xl text-slate-400 dark:text-slate-500 text-center">
         <div className="flex flex-col items-center gap-2">
-            <div className="p-3 bg-white dark:bg-slate-800 rounded-full shadow-sm border border-slate-100 dark:border-slate-700">
+            <div className="p-3 bg-white dark:bg-dark-warm-secondary rounded-full shadow-sm border border-slate-100 dark:border-slate-700">
                 <IconStack2 size={24} className="opacity-50 text-slate-900 dark:text-slate-100" />
             </div>
             <p className="text-sm font-medium">Select a level to view details</p>
@@ -31,9 +31,9 @@ const InfoPanel: React.FC<InfoPanelProps> = ({ level }) => {
   }
 
   return (
-    <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 shadow-sm h-full flex flex-col overflow-hidden transition-colors duration-300">
+    <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-dark-warm text-slate-950 dark:text-slate-50 shadow-sm h-full flex flex-col overflow-hidden transition-colors duration-300">
         {/* Card Header */}
-        <div className="flex flex-col space-y-1.5 p-6 border-b border-slate-100 dark:border-slate-800 bg-slate-50/30 dark:bg-slate-800/30 flex-shrink-0">
+        <div className="flex flex-col space-y-1.5 p-6 border-b border-slate-100 dark:border-slate-700 bg-slate-50/30 dark:bg-dark-warm-secondary/30 flex-shrink-0">
             <div className="flex items-center gap-2 mb-1">
                 <span 
                     className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
@@ -66,7 +66,7 @@ const InfoPanel: React.FC<InfoPanelProps> = ({ level }) => {
                 >
                     <ul className="space-y-1.5 pl-1">
                         {level.taskProfile.map((item, i) => (
-                            <li key={i} className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2">
+                            <li key={i} className="text-sm text-slate-700 dark:text-slate-400 flex items-start gap-2">
                                 <span className="mt-2 h-1 w-1 rounded-full bg-slate-400 dark:bg-slate-500 shrink-0" />
                                 {item}
                             </li>
@@ -80,11 +80,11 @@ const InfoPanel: React.FC<InfoPanelProps> = ({ level }) => {
                     icon={<IconStack2 className="h-4 w-4" />}
                     defaultOpen={true}
                 >
-                    <div className="rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 p-3">
+                    <div className="rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-dark-warm-secondary/50 p-3">
                         <ul className="grid gap-2">
                             {level.examples.map((ex, i) => (
                                 <li key={i} className="text-sm text-slate-700 dark:text-slate-300 flex items-start gap-2">
-                                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-400 dark:bg-slate-600 shrink-0" />
+                                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-400 dark:bg-slate-700 shrink-0" />
                                     {ex}
                                 </li>
                             ))}
@@ -100,7 +100,7 @@ const InfoPanel: React.FC<InfoPanelProps> = ({ level }) => {
                 >
                      <ul className="space-y-1.5 pl-1">
                         {level.aiTools.map((item, i) => (
-                            <li key={i} className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2">
+                            <li key={i} className="text-sm text-slate-700 dark:text-slate-400 flex items-start gap-2">
                                 <span className="mt-2 h-1 w-1 rounded-full bg-slate-400 dark:bg-slate-500 shrink-0" />
                                 {item}
                             </li>
@@ -140,7 +140,7 @@ const InfoPanel: React.FC<InfoPanelProps> = ({ level }) => {
                 >
                      <ul className="space-y-1.5 pl-1">
                         {level.keyCharacteristics.map((item, i) => (
-                            <li key={i} className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2">
+                            <li key={i} className="text-sm text-slate-700 dark:text-slate-400 flex items-start gap-2">
                                 <span className="mt-2 h-1 w-1 rounded-full bg-slate-400 dark:bg-slate-500 shrink-0" />
                                 {item}
                             </li>
@@ -165,10 +165,10 @@ const CollapsibleSection: React.FC<CollapsibleSectionProps> = ({ title, icon, ch
     const [isOpen, setIsOpen] = useState(defaultOpen);
 
     return (
-        <Collapsible.Root open={isOpen} onOpenChange={setIsOpen} className="rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm transition-all hover:border-slate-300 dark:hover:border-slate-700">
-            <Collapsible.Trigger className="flex w-full items-center justify-between p-4 font-medium transition-all [&[data-state=open]>svg]:rotate-180 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg">
+        <Collapsible.Root open={isOpen} onOpenChange={setIsOpen} className="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-dark-warm shadow-sm transition-all hover:border-slate-300 dark:hover:border-slate-700">
+            <Collapsible.Trigger className="flex w-full items-center justify-between p-4 font-medium transition-all [&[data-state=open]>svg]:rotate-180 hover:bg-slate-50 dark:hover:bg-dark-warm-secondary/50 rounded-lg">
                 <div className="flex items-center gap-2 text-slate-900 dark:text-slate-100">
-                    <div className="p-1 rounded-md bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                    <div className="p-1 rounded-md bg-slate-100 dark:bg-dark-warm-secondary border border-slate-200 dark:border-slate-700">
                         {React.cloneElement(icon as React.ReactElement<{ className?: string }>, { className: "h-4 w-4 text-slate-500 dark:text-slate-400" })}
                     </div>
                     <span className="text-sm font-semibold">{title}</span>

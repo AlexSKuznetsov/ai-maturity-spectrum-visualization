@@ -149,9 +149,9 @@ const LevelBlock: React.FC<{ levelId: number }> = ({ levelId }) => {
           'transition-all duration-300 ease-out',
           isActive
             ? 'stroke-none'
-            : 'fill-white dark:fill-slate-900 stroke-slate-400 dark:stroke-slate-600'
+            : 'fill-white dark:fill-dark-warm stroke-slate-400 dark:stroke-slate-700'
         )}
-        strokeWidth={isActive ? 0 : 1.5}
+        strokeWidth={isActive ? 0 : 1}
         filter={
           isActive
             ? 'drop-shadow(0px 4px 6px rgba(0,0,0,0.15))'
@@ -216,7 +216,7 @@ const LevelBlock: React.FC<{ levelId: number }> = ({ levelId }) => {
       <text
         data-anim="level-text"
         x={level.x + config.blockWidth / 2}
-        y={level.y + config.blockHeight / 2}
+        y={level.y + config.blockHeight / 2 - 3}
         textAnchor="middle"
         dominantBaseline="middle"
         fill={isActive ? 'white' : undefined}

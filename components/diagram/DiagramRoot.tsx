@@ -6,6 +6,7 @@ import { useDiagramLayout } from './useDiagramLayout';
 interface DiagramRootProps {
   levels: LevelData[];
   activeLevel: LevelData | null;
+  assessedLevel: number | null;
   onSelect: (level: LevelData) => void;
   children: React.ReactNode;
 }
@@ -13,6 +14,7 @@ interface DiagramRootProps {
 const DiagramRoot: React.FC<DiagramRootProps> = ({
   levels,
   activeLevel,
+  assessedLevel,
   onSelect,
   children
 }) => {
@@ -25,6 +27,7 @@ const DiagramRoot: React.FC<DiagramRootProps> = ({
         ...layout,
         levels,
         activeLevel,
+        assessedLevel,
         hoveredLevelId,
         setHoveredLevelId,
         onSelect

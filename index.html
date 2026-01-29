@@ -4,36 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Maturity Spectrum</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            keyframes: {
-              "slide-down": {
-                from: { height: "0" },
-                to: { height: "var(--radix-collapsible-content-height)" },
-              },
-              "slide-up": {
-                from: { height: "var(--radix-collapsible-content-height)" },
-                to: { height: "0" },
-              },
-            },
-            animation: {
-              "slide-down": "slide-down 0.2s ease-out",
-              "slide-up": "slide-up 0.2s ease-out",
-            },
-          },
-        },
-      }
-    </script>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-      body {
-        font-family: 'Inter', sans-serif;
-      }
-    </style>
+    <link rel="stylesheet" href="/index.css">
   <script type="importmap">
 {
   "imports": {
@@ -51,9 +22,8 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+  <body class="bg-slate-50 dark:bg-dark-warm transition-colors duration-300">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

@@ -34,12 +34,12 @@ export interface DiagramLayoutData {
 }
 
 const DEFAULT_CONFIG: DiagramConfig = {
-  width: 800,
+  width: 1100,
   height: 500,
-  padding: 60,
-  blockWidth: 100,
+  padding: 50,
+  blockWidth: 110,
   blockHeight: 60,
-  blockOffset: 40,
+  blockOffset: 50,
   blockYOffset: 30
 };
 
