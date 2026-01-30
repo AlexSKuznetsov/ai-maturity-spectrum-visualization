@@ -8,6 +8,7 @@ import { RoadmapDialog } from './components/roadmap';
 import { LevelData, AssessmentResult } from './types';
 import { AI_LEVELS } from './constants';
 import { useAssessmentStore } from './store/useAssessmentStore';
+import { Analytics } from "@vercel/analytics/react"
 
 const App: React.FC = () => {
   const savedAssessmentResult = useAssessmentStore((state) => state.result);
@@ -69,6 +70,7 @@ const App: React.FC = () => {
 
   return (
     <div className="flex flex-col h-screen bg-slate-50/50 dark:bg-dark-warm/50 font-sans text-slate-950 dark:text-slate-50 overflow-hidden transition-colors duration-300">
+      <Analytics />
       <AppHeader theme={theme} onToggleTheme={toggleTheme} onOpenAssessment={() => setAssessmentOpen(true)} />
 
       {/* Main Content */}
